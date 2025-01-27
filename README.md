@@ -5,5 +5,5 @@ Membres del Grup:
 - Carles 
 - Judith
 - Sergio
--
+- Tessa
 -
