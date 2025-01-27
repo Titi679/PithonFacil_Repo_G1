@@ -3,7 +3,7 @@ HOLAHOLAHOLA
 
 Membres del Grup:
 - Carles 
--
+- Judith
 -
 -
 -
