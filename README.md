@@ -1,6 +1,6 @@
 # PythonFacil_Repo_G2
 
-Membres del Grup:
+## Membres del Grup:
 
 - Carles
 - Judith
