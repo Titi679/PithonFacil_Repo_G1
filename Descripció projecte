@@ -1,0 +1,10 @@
+# This is the project description
+# Magatzem
+  # Categories: Begudes, Olis, Conserves de peix, Conserves vegetals, Snacks, Salses, Productes làctics; Llegums, arrossos i pasta
+  # Operacions: 
+    # 1. Inicialitzar el magatzem
+    # 2. Inicialitzar les categories
+    # 3. Afegir un conjunt de productes a la seva ubicació de manera ordenada segons el procediment descrit.
+    # 4. Obtenir un nombre d’unitats d’una safata situada en un prestatge i nivell determinats, ja sigui a la càmera frigorífica o a la despensa
+# Càmera frigorífica
+  # Categories: Postres, Iogurts, Carns, Fruites, Embotits, Formatges, Verdures
