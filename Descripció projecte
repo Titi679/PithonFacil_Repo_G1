@@ -8,3 +8,13 @@
     # 4. Obtenir un nombre d’unitats d’una safata situada en un prestatge i nivell determinats, ja sigui a la càmera frigorífica o a la despensa
 # Càmera frigorífica
   # Categories: Postres, Iogurts, Carns, Fruites, Embotits, Formatges, Verdures
+
+# Quiosc
+ # Interaccó usuari-sistema
+ # Operacions:
+    # - Registrar-se al sistema.
+    # - Consultar les categories disponibles.
+    # - Consultar els productes d’una categoria.
+    # - Consultar el catàleg de productes (nom, imatge, categoria, preu) ordenat ascendentment per preu.
+    # - Consultar els encàrrecs que un usuari hagi realitzat prèviament.
+    # - Realitzar un encàrrec (que pot estar format per diferents productes i en diferents quantitats) per part d’un usuari identificat.
