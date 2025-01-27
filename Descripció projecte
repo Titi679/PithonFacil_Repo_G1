@@ -18,3 +18,10 @@
     # - Consultar el catàleg de productes (nom, imatge, categoria, preu) ordenat ascendentment per preu.
     # - Consultar els encàrrecs que un usuari hagi realitzat prèviament.
     # - Realitzar un encàrrec (que pot estar format per diferents productes i en diferents quantitats) per part d’un usuari identificat.
+
+# Cuina
+  # Gestiona encàrrecs usuari
+  # Operacions:
+    # Planificar un encàrrec: Donat un encàrrec, proporcionar instruccions per accedir als productes dins del magatzem. Per a cada producte, s’indicarà el prestatge, nivell i safata corresponents, agilitzant així el procés de cerca.
+    # Servir un encàrrec: Els encàrrecs es serveixen segons l’ordre d’arribada.
+    # Consultar els productes ordenats descendentment pel nombre de vendes.
