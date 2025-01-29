@@ -1,0 +1,38 @@
+from logging import NullHandler
+productes = [{ "id": "cc-zero", "nom":"coca-cola zero", "preu": 2, "categoria": "beguda"},
+             { "id": "cc", "nom":"coca-cola", "preu": 2.1, "categoria": "beguda"},
+             { "id": "beer1", "nom":"cervesa A", "preu": 3, "categoria": "beguda"},
+             { "id": "beer2", "nom":"cervesa B", "preu": 3, "categoria": "beguda"},
+             { "id": "oli1", "nom":"oli verge extra", "preu": 20, "categoria": "olis"},
+             { "id": "beer3", "nom":"cervesa C", "preu": 3, "categoria": "beguda"},
+             { "id": "oli2", "nom":"oli verge extra", "preu": 22, "categoria": "olis"},
+             { "id": "fanta", "nom":"fanta", "preu": 1.5, "categoria": "beguda"}]
+
+def obtenir_productes_per_categoria(productes, categoria):
+  list_cat_pr = []
+  for producte in productes:
+      if(producte.get("categoria") == categoria):
+        list_cat_pr.append(producte)
+  return list_cat_pr
+
+def obtenir_categories(productes):
+  list_cat = []
+  for producte in productes:
+    for key in producte.keys():
+      if(key not in list_cat):
+        list_cat.append(key)
+  return list_cat
+
+def ordenar(producte):
+  preu = producte.get("preu")
+  return preu
+
+def obtenir_productes_ordenats_per_preu(productes):
+  list_preu = []
+  list_preu = productes
+  list_preu = sorted(list_preu, key=ordenar,  reverse=True)
+  return list_preu
+
+resultat = obtenir_productes_per_categoria(productes, "beguda")
+for producte in resultat:
+    print(producte)
