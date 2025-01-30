@@ -1,7 +1,5 @@
-
-
 # Quiosc.py
-from Magatzem import Magatzem+Producte 
+from Magatzem.Magatzem import Producte
 
 class Quiosc:
     def _init_(self, magatzem):
@@ -31,11 +29,10 @@ class Quiosc:
 
 
 
-
 def afegir_venda(id_producte):
     # --tODO: Implementar la funció afegir_venda quan s'acabi el magatzem
 
     """
     Actualiza la seguent classe amb la funció afegir_venda:
     """
-
+print(Producte)
