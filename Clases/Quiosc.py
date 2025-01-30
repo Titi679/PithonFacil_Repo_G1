@@ -1,4 +1,3 @@
-# Quiosc.py
 import Magatzem
 
 
