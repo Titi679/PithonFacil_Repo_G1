@@ -1,8 +1,8 @@
 # quiosc.py
-usuaris = {}  # Diccionari d'usuaris registrats
-encarrecs = []  # Llista d'encàrrecs pendents
+usuaris = {}
+encarrecs = []
 
-# Productes inicials (exemple del professor)
+# Productes inicials
 productes = [
     {"id": "cc-zero", "nom": "Coca-Cola Zero", "preu": 2, "categoria": "beguda", "fred": True},
     {"id": "cc", "nom": "Coca-Cola", "preu": 2.1, "categoria": "beguda", "fred": True},
