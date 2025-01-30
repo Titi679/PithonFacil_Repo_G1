@@ -9,7 +9,7 @@ inicialitzar_magatzem() # ¿?
 end = False
 
 
-print("\n*** Sistema UPC Restauració ***")
+print("\n*** UPC Restauració ***")
 
 while not end:
     print("\nMenú Principal:")
