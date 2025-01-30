@@ -5,7 +5,7 @@ from quiosc import *
 from cuina import *
 
 
-inicialitzar_magatzem()
+inicialitzar_magatzem() # ¿?
 end = False
 
 

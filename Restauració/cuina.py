@@ -4,6 +4,7 @@ encarrecs_pendents = []
 ventes = {}
 
 
+
 def planificar_encarrec():
     """Treu el primer encàrrec de la llista"""
     if encarrecs_pendents:
@@ -14,3 +15,4 @@ def planificar_encarrec():
 def top_vendes():
     """Retorna top productes venuts"""
     return sorted(ventes.items(), key=lambda x: x[1], reverse=True)
+
