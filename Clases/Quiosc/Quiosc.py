@@ -26,3 +26,9 @@ class Quiosc:
             self.usuaris[usuari_id].append(productes)
         else:
             print("Error: Usuari no registrat.")
+
+
+
+def afegir_venda():
+    # --tODO: Implementar la funció afegir_venda quan s'acabi el magatzem
+    pass
