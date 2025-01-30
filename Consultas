@@ -23,14 +23,10 @@ def obtenir_categories(productes):
         list_cat.append(key)
   return list_cat
 
-def ordenar(producte):
-  preu = producte.get("preu")
-  return preu
-
 def obtenir_productes_ordenats_per_preu(productes):
   list_preu = []
   list_preu = productes
-  list_preu = sorted(list_preu, key=ordenar,  reverse=True)
+  list_preu = sorted(list_preu, key=lambda p: p.get("preu"),  reverse=True)
   return list_preu
 
 resultat = obtenir_productes_per_categoria(productes, "beguda")
