@@ -52,10 +52,9 @@ while not end:
             producte_id = input("ID del producte: ")
             if producte_id.lower() == "fi":
                 break
-            producte = next((p for p in productes if p["id"] == producte_id), None)
+            producte = next((p for p in productes if p["id"] == producte_id), None) # https://www.w3schools.com/python/ref_func_next.asp
             if producte:
                 productes_encarrec.append(producte)
-                # Actualitzar vendes
                 ventes[producte_id] = ventes.get(producte_id, 0) + 1
                 print(f"Producte afegit: {producte['nom']}")
             else:

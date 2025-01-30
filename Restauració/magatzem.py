@@ -33,7 +33,7 @@ def afegir_producte(producte, es_fred):
     zona = "frigo" if es_fred else "despensa"
     categoria = producte["categoria"]
 
-    # Cerca posició compatible
+    # Cerca posició
     for pos, detalls in magatzem[zona].items():
         if detalls["categoria"] == categoria and len(detalls["productes"]) < detalls["capacitat"]:
             detalls["productes"].append(producte)
@@ -42,7 +42,7 @@ def afegir_producte(producte, es_fred):
             detalls["categoria"] = categoria
             detalls["productes"].append(producte)
             return True
-    return False  # Sense espai
+    return False
 
 
 def obtenir_unitats(pos, es_fred):
