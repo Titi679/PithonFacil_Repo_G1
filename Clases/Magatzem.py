@@ -59,19 +59,16 @@ class Despensa(Magatzem):
   def __init__(self):
     super().__init__()
     x = 0
-    while x < 4:
-      y = 0
-      while y < 12:
+    for x in range (0,4):
+      for y in range (0,12):
         prestatge = Prestatge((x,y))
         self.espai.append(prestatge)
 
 class Frigo(Magatzem):
   def __init__(self):
     super().__init__()
-    x = 0
-    while x < 2:
-      y = 0
-      while y < 2:
+    for x in range (0,4):
+      for y in range (0,4):
         prestatge = Prestatge((x,y))
         self.espai.append(prestatge)
 
