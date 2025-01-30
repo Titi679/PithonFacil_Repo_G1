@@ -1,5 +1,5 @@
 # Quiosc.py
-from Clases.Magatzem import Producte
+import Magatzem
 
 class Quiosc:
     def _init_(self, magatzem):
@@ -35,4 +35,3 @@ def afegir_venda(id_producte):
     """
     Actualiza la seguent classe amb la funció afegir_venda:
     """
-print(Producte)

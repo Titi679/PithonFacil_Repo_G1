@@ -18,7 +18,7 @@ class Magatzem:
     for prestatge in self.espai:
       if prestatge.get_pos() == pos:
         prestatge.add(Contenidor)
-    h
+    
 
 class Despensa(Magatzem):
   def __init__(self):
