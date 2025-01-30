@@ -37,10 +37,10 @@ class Magatzem:
         return prestatge
 
   #def organitzar(self, Producte):
-    # Codi
+    # Codi 
   
-  def add(self, Contenidor):
-    pos = self.organitzar(Contenidor.get_pr(Producte))
+  def add(self, Contenidor, pos):
+    #pos = self.organitzar(Contenidor.get_pr(Producte))
     Contenidor.set(pos)
     for prestatge in self.espai:
       if prestatge.get_pos() == pos:
@@ -49,13 +49,15 @@ class Magatzem:
   def delete(self, Contenidor):
     pos = Contenidor.get_pos
     i = 0
+    end = False
     while i < len(self.espai) and not end:
       if self.espai(i).get_pos() == pos:
         end = True
-    self.espai(i).eliminar()
+    self.espai(i).get_cont().delete(0)
 
 class Despensa(Magatzem):
   def __init__(self):
+    super().__init__()
     x = 0
     while x < 4:
       y = 0
@@ -65,10 +67,11 @@ class Despensa(Magatzem):
 
 class Frigo(Magatzem):
   def __init__(self):
+    super().__init__()
     x = 0
-    while x < 4:
+    while x < 2:
       y = 0
-      while y < 4:
+      while y < 2:
         prestatge = Prestatge((x,y))
         self.espai.append(prestatge)
 
@@ -83,6 +86,9 @@ class Prestatge:
   
   def get_pos(self):
     return self.pos
+
+  def get_cont(self):
+    return self.continguts
 
   def add(self, Contenidor):
     self.quantitat = self.quatitat + Contenidor.get_q()
@@ -107,35 +113,44 @@ class Contenidor:
     self.pos = pos
 
 class Producte:
-  def __init__(self, id, nom, preu, categoria, vendas, fred):
+  def __init__(self, id, nom, preu, categoria, fred):
     self.id = id
     self.nom = nom
     self.preu = preu
     self.categoria = categoria
-    self.vendas = vendas
+    self.vendas = 0
     self.fred = fred
 
-    def afegir_venda(self):
-      self.vendas += 1
-
   def __str__(self):
-    return f"id: {self.id} nom: {self.nom} preu: {self.preu} categoria: {self.categoria}"
+    if self.fred:
+      return f"\nID: {self.id} \nNom: {self.nom} \nPreu: {self.preu} \nCategoria: {self.categoria} \nFred: Si"
+    else:
+      return f"\nID: {self.id} \nNom: {self.nom} \nPreu: {self.preu} \nCategoria: {self.categoria} \nFred: No"
+  
+  def fred(self):
+    if self.fred:
+      return True
+    else:
+      return False
 
-def add_pr_m(producte):
-  pos = org(producte)
-
-
-
-
-despensa = Despensa()
+#despensa = Despensa()
 frigo = Frigo()
-magatzem = [despensa, frigo]
+#magatzem = [despensa, frigo]
 
-Producte1 = Producte("oli5", "oli verge extra", 32, "olis", 0, False)
-Producte2 = Producte("wine1", "Blanc Pescador",  10, "begudes", 0, False)
-Producte3 = Producte("wine2", "Albariño", 14, "begudes", 0, False)
+producte1 = Producte("oli5", "oli verge extra", 32, "olis", False)
+producte2 = Producte("wine1", "Blanc Pescador",  10, "begudes", False)
+producte3 = Producte("wine2", "Albariño", 14, "begudes", False)
 
-Contenidor11 = Contenidor(50, Producte1)
-Contenidor12 = Contenidor(25, Producte1)
-Contenidor2 = Contenidor(50, Producte1)
-Contenidor3 = Contenidor(50, Producte1)
+contenidor11 = Contenidor(50, producte1)
+contenidor12 = Contenidor(25, producte1)
+contenidor2 = Contenidor(75, producte2)
+contenidor3 = Contenidor(50, producte3)
+
+frigo.add(contenidor11, (0,0))
+frigo.add(contenidor12, (0,1))
+frigo.add(contenidor2, (1,1))
+frigo.add(contenidor3, (2,1))
+
+print(producte1)
+print(producte2)
+print(producte3)
