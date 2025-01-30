@@ -1,6 +1,8 @@
 # Quiosc.py
 import Magatzem
 
+
+
 class Quiosc:
     def _init_(self, magatzem):
         self.magatzem = magatzem
@@ -26,6 +28,13 @@ class Quiosc:
             self.usuaris[usuari_id].append(productes)
         else:
             print("Error: Usuari no registrat.")
+
+    def consultar_encarrecs(self, usuari_id):
+        if usuari_id in self.usuaris:
+            return self.usuaris[usuari_id]
+        else:
+            print("Error: Usuari no registrat.")
+            return None
 
 
 
@@ -63,19 +72,25 @@ def interficie():
     while opcio != "7":
         if opcio == "1":
             print("Registrar-se al sistema.")
+            # --toDO: registrar_usuari()
         elif opcio == "2":
             print("Consultar les categories disponibles.")
+            # --toDO: consultar_categories()
         elif opcio == "3":
             print("Consultar els productes d’una categoria.")
+            # --toDO: consultar_productes_categoria()
         elif opcio == "4":
             print("Consultar el catàleg de productes per preu.")
             print(rankingVendas(simulacio_productes))
         elif opcio == "5":
             print("Consultar els encàrrecs que un usuari hagi realitzat prèviament.")
+            # --toDO: consultar_encarrecs()
+            Quiosc.consultar_encarrecs("usuari_id")
         elif opcio == "6":
             print("Realitzar un encàrrec.")
+            # --toDO: realitzar_encarrec()
         elif opcio == "7":
-            print("Sortir.")
+            print("Sortir. Fins aviat!")
         else:
             print("Opció incorrecta.")
 
@@ -88,6 +103,8 @@ def interficie():
         print("6. Realitzar un encàrrec.")
         print("7. Sortir.")
         opcio = input("Opció: ")
+
+
 
 
 interficie()
