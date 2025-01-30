@@ -38,7 +38,7 @@ def afegir_producte(producte, es_fred):
         if detalls["categoria"] == categoria and len(detalls["productes"]) < detalls["capacitat"]:
             detalls["productes"].append(producte)
             return True
-        elif detalls["categoria"] is None:  # Nova categoria
+        elif detalls["categoria"] is None:
             detalls["categoria"] = categoria
             detalls["productes"].append(producte)
             return True
