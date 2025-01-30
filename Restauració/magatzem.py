@@ -7,8 +7,8 @@ magatzem = {
 
 
 def inicialitzar_magatzem():
-    """Inicialitza els prestatges buits segons les especificacions de la UPC"""
-    # Configuració frigorífic (4 prestatges)
+    """Inicialitza els prestatges"""
+    # Configuració frigorífic (4*4) ¿?
     for x in range(4):
         for y in range(4):
             magatzem["frigo"][(x, y)] = {
@@ -17,7 +17,7 @@ def inicialitzar_magatzem():
                 "capacitat": 50
             }
 
-    # Configuració despensa (12 prestatges)
+    # Configuració despensa (12*4) ¿?
     for x in range(12):
         for y in range(4):
             magatzem["despensa"][(x, y)] = {
@@ -29,7 +29,7 @@ def inicialitzar_magatzem():
 
 
 def afegir_producte(producte, es_fred):
-    """Afegeix un producte al magatzem seguint les regles de categories contigües"""
+    """Afegeix un producte al magatzem"""
     zona = "frigo" if es_fred else "despensa"
     categoria = producte["categoria"]
 
@@ -46,6 +46,6 @@ def afegir_producte(producte, es_fred):
 
 
 def obtenir_unitats(pos, es_fred):
-    """Retorna unitats disponibles en una posició específica"""
+    """Retorna unitats disponibles d'una pos"""
     zona = "frigo" if es_fred else "despensa"
     return len(magatzem[zona][pos]["productes"]) if pos in magatzem[zona] else 0

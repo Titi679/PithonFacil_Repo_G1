@@ -18,16 +18,16 @@ def obtenir_productes_per_categoria(categoria):
 
 
 def obtenir_categories():
-    """Retorna llista de categories úniques"""
+    """Retorna llista de categories"""
     return list({p["categoria"] for p in productes})
 
 
 def registrar_usuari(usuari_id):
-    """Registra un nou usuari al sistema"""
+    """nou usuari"""
     if usuari_id not in usuaris:
         usuaris[usuari_id] = []
         return True
-    return False  # Usuari existent
+    return False
 
 
 def realitzar_encarreg(usuari_id, productes_encarrec):
@@ -35,4 +35,4 @@ def realitzar_encarreg(usuari_id, productes_encarrec):
     if usuari_id in usuaris:
         encarrecs.append({"usuari": usuari_id, "productes": productes_encarrec})
         return True
-    return False  # Usuari no registrat
+    return False

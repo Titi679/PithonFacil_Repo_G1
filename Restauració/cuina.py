@@ -12,5 +12,5 @@ def planificar_encarrec():
 
 
 def top_vendes():
-    """Retorna top productes més venuts"""
+    """Retorna top productes venuts"""
     return sorted(ventes.items(), key=lambda x: x[1], reverse=True)
