@@ -1,7 +1,7 @@
 
 
 # Quiosc.py
-
+from Magatzem import Magatzem+Producte 
 
 class Quiosc:
     def _init_(self, magatzem):
