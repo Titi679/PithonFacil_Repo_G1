@@ -1,9 +1,12 @@
-class Quiosc:
+# Quiosc.py
 
+
+class Quiosc:
     def _init_(self, magatzem):
         self.magatzem = magatzem
         self.usuaris = {}
         self.encarrecs = []
+        self.ventes = []
 
     # def registrar_usuari(self, usuari_id):
     #     self.usuaris[usuari_id] = []
