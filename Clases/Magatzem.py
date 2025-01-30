@@ -1,5 +1,32 @@
 from functools import reduce
 
+class Quiosc:
+    def _init_(self, magatzem):
+        self.magatzem = magatzem
+        self.usuaris = {}
+        self.encarrecs = []
+        self.ventes = []
+
+    # def registrar_usuari(self, usuari_id):
+    #     self.usuaris[usuari_id] = []
+
+    # def consultar_categories(self, es_fred):
+    #     categories = set()
+    #     prestatges = self.magatzem.prestatges_fred if es_fred else self.magatzem.prestatges_despensa
+    #     for prestatge in prestatges:
+    #         for nivell in prestatge.nivells:
+    #             if nivell.categoria:
+    #                 categories.add(nivell.categoria)
+    #     return list(categories)
+
+    def realitzar_encarrec(self, usuari_id, productes):
+        if usuari_id in self.usuaris:
+            self.encarrecs.append((usuari_id, productes))
+            self.usuaris[usuari_id].append(productes)
+        else:
+            print("Error: Usuari no registrat.")
+
+
 class Magatzem:
   def __init__(self):
     self.espai = []
@@ -18,7 +45,14 @@ class Magatzem:
     for prestatge in self.espai:
       if prestatge.get_pos() == pos:
         prestatge.add(Contenidor)
-    
+  
+  def delete(self, Contenidor):
+    pos = Contenidor.get_pos
+    i = 0
+    while i < len(self.espai) and not end:
+      if self.espai(i).get_pos() == pos:
+        end = True
+    self.espai(i).eliminar()
 
 class Despensa(Magatzem):
   def __init__(self):
@@ -86,6 +120,10 @@ class Producte:
 
 def add_pr_m(producte):
   pos = org(producte)
+
+despensa = Despensa()
+frigo = Frigo()
+magatzem = [despensa, frigo]
 
 Producte1 = Producte("oli5", "oli verge extra", 32, "olis", 0, False)
 Producte2 = Producte("wine1", "Blanc Pescador",  10, "begudes", 0, False)
