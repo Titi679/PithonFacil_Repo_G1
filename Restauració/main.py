@@ -1,4 +1,5 @@
 # main.py
+
 from magatzem import inicialitzar_magatzem
 from quiosc import *
 from cuina import *

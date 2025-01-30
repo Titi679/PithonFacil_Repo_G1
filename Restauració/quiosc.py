@@ -1,4 +1,5 @@
 # quiosc.py
+
 usuaris = {}
 encarrecs = []
 
