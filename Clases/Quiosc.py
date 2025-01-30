@@ -1,4 +1,4 @@
-import Magatzem
+from Magatzem import Producte
 
 class Quiosc:
     def _init_(self, magatzem):
