@@ -35,6 +35,9 @@ class Magatzem:
     for prestatge in self.espai:
       if prestatge.get_pos() == pos:
         return prestatge
+  
+  def get_espai(self):
+    return self.espai
 
   #def organitzar(self, Producte):
     # Codi 
@@ -88,12 +91,21 @@ class Prestatge:
     return self.continguts
 
   def add(self, Contenidor):
-    self.quantitat = self.quatitat + Contenidor.get_q()
+    self.quantitat = self.quantitat + Contenidor.get_q()
     i = len(self.continguts)
     self.continguts.append(Contenidor)
     while i > 0:
       self.continguts[i] = self.continguts[i-1]
     self.continguts[0] = Contenidor
+  
+  def __str__(self):
+    txt = ''
+    for contenidor in self.continguts:
+      nom = contenidor.get_pr().get_nom()
+      preu = contenidor.get_pr().get_preu()
+      categoria = contenidor.get_pr().get_cat()
+      txt =  txt + f"\nNom: {nom} \nPreu: {preu} \nCategoria: {categoria} \nFred: Si \nSafates: {self.quantitat} \nPosició: {self.pos}"
+    return txt
 
 class Contenidor:
   def __init__(self, quantitat, producte):
@@ -109,6 +121,7 @@ class Contenidor:
   def set(self, pos):
     self.pos = pos
 
+
 class Producte:
   def __init__(self, id, nom, preu, categoria, fred):
     self.id = id
@@ -117,6 +130,15 @@ class Producte:
     self.categoria = categoria
     self.vendas = 0
     self.fred = fred
+
+  def get_nom(self):
+    return self.nom
+
+  def get_preu(self):
+    return self.preu
+
+  def get_cat(self):
+    return self.categoria
 
   def __str__(self):
     if self.fred:
@@ -151,3 +173,7 @@ frigo.add(contenidor3, (2,1))
 print(producte1)
 print(producte2)
 print(producte3)
+
+for prestatge in frigo.get_espai():
+  if prestatge.getq() != 0:
+    print(prestatge)
