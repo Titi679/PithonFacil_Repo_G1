@@ -31,3 +31,4 @@ class Quiosc:
 
 def rankingVendas(productes):
   return sorted(productes, key=lambda producte: producte.vendas, reverse=True)
+
