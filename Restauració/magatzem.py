@@ -1,4 +1,5 @@
 # magatzem.py
+
 magatzem = {
     "frigo": {},
     "despensa": {}
