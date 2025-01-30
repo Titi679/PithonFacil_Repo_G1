@@ -1,5 +1,5 @@
 # Quiosc.py
-from Magatzem.Magatzem import Producte
+from Clases.Magatzem import Producte
 
 class Quiosc:
     def _init_(self, magatzem):
