@@ -115,11 +115,17 @@ class Producte:
     self.vendas = vendas
     self.fred = fred
 
+    def afegir_venda(self):
+      self.vendas += 1
+
   def __str__(self):
     return f"id: {self.id} nom: {self.nom} preu: {self.preu} categoria: {self.categoria}"
 
 def add_pr_m(producte):
   pos = org(producte)
+
+
+
 
 despensa = Despensa()
 frigo = Frigo()

@@ -29,9 +29,5 @@ class Quiosc:
 
 
 
-def afegir_venda(id_producte):
-    # --tODO: Implementar la funció afegir_venda quan s'acabi el magatzem
-
-    """
-    Actualiza la seguent classe amb la funció afegir_venda:
-    """
+def rankingVendas(productes):
+  return sorted(productes, key=lambda producte: producte.vendas, reverse=True)
