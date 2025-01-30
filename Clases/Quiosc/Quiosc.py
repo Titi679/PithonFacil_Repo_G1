@@ -29,6 +29,10 @@ class Quiosc:
 
 
 
-def afegir_venda():
+def afegir_venda(id_producte):
     # --tODO: Implementar la funció afegir_venda quan s'acabi el magatzem
-    pass
+
+    """
+    Actualiza la seguent classe amb la funció afegir_venda:
+    """
+
