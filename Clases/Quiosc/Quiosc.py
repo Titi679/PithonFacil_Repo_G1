@@ -1,3 +1,5 @@
+
+
 # Quiosc.py
 
 
@@ -26,6 +28,7 @@ class Quiosc:
             self.usuaris[usuari_id].append(productes)
         else:
             print("Error: Usuari no registrat.")
+
 
 
 
