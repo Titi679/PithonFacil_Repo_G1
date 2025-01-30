@@ -1,5 +1,5 @@
 class Espai:
-  def init(self)
+  def __init__(self)
     self.espai = []
   
   def add(self, Contenidor): #En el main es diferencia si la funció s'aplica sobre el magatzem o al frigorífic
@@ -8,18 +8,20 @@ class Espai:
   
   def organitzar(self, Contenidor)
 
+
 class Magatzem(Espai):
-  def init(self):
+  def __init__(self):
     super().init()
 
+
 class Contenidor:
-  def init(self, quantitat, pos, producte)
+  def __init__(self, quantitat, pos, producte)
     self.quantitat = quantitat
     self.pos = pos
     self.producte = producte
 
 class Producte:
-  def init(self, id, nom, preu, categoria, vendas, fred):
+  def __init__(self, id, nom, preu, categoria, vendas, fred):
     self.id = id
     self.nom = nom
     self.preu = preu
@@ -27,5 +29,5 @@ class Producte:
     self.vendas = vendas
     self.fred = fred
 
-  def str(self):
+  def __str__(self):
     return f"id: {self.id} nom: {self.nom} preu: {self.preu} categoria: {self.categoria}"
