@@ -34,7 +34,7 @@ class Quiosc:
         """nou usuari"""
         if usuari_id not in self.usuaris:
             usuari = Usuari(usuari_id, name)
-            self.usuaris.append(usuari_id: usuari)
+            self.usuaris.append({usuari_id: usuari})
             return True
         else:
             return False
