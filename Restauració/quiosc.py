@@ -36,6 +36,12 @@ class Quiosc:
         else:
             return False
 
+    def planificar_encarrec(self):
+        """Treu el primer encàrrec de la llista"""
+        if self.encarrecs[0] != None:
+            return self.encarrecs.pop(0)
+        return None
+
     def top_vendes(self):
         """Retorna top productes venuts"""
         return sorted(self.productes.items(), key=lambda x: x.get_preu(), reverse=True)
