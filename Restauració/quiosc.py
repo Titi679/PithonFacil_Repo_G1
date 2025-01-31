@@ -19,6 +19,9 @@ class Quiosc:
         frigo = Frigo()
         self.magatzem = [despensa, frigo]
 
+    def get_ususaris(self):
+        return self.usuaris
+
     def obtenir_productes_per_categoria(self, categoria):
         """Filtra productes per categoria"""
         return [p for p in self.productes if p.get_cat() == categoria]
@@ -31,7 +34,7 @@ class Quiosc:
         """nou usuari"""
         if usuari_id not in self.usuaris:
             usuari = Usuari(usuari_id, name)
-            self.usuaris.append((usuari_id: usuari))
+            self.usuaris.append(usuari_id: usuari)
             return True
         else:
             return False
@@ -44,7 +47,10 @@ class Quiosc:
 
     def top_vendes(self):
         """Retorna top productes venuts"""
-        return sorted(self.productes.items(), key=lambda x: x.get_preu(), reverse=True)
+        if len(self.productes) != 0:
+            return sorted(self.productes.items(), key=lambda x: x.get_preu(), reverse=True)
+        else:
+            return None
     
     def realitzar_encarreg(usuari_id, productes_encarrec):
         """Gestiona un nou encàrrec"""
@@ -55,7 +61,7 @@ class Quiosc:
                 correct = espai.set_venda(producte, 1)
                 if correct:
                     encarrecs.append({"usuari": usuari_id, "productes": productes_encarrec})
-                    self.usuaris.get(usuari_id).set_enc("productes": productes_encarrec))
+                    self.usuaris.get(usuari_id).set_enc({"productes": productes_encarrec})
                     return True
         else:
             return False
