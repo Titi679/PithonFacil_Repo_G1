@@ -1,5 +1,5 @@
 # quiosc.py
-import magatzem
+#import magatzem #already imported in the main file
 
 class Usuari:
     def __init__(self, id, name):
@@ -19,7 +19,7 @@ class Quiosc:
         frigo = Frigo()
         self.magatzem = [despensa, frigo]
 
-    def get_ususaris(self):
+    def get_usuaris(self):
         return self.usuaris
 
     def obtenir_productes_per_categoria(self, categoria):
@@ -34,9 +34,31 @@ class Quiosc:
         """nou usuari"""
         if usuari_id not in self.usuaris:
             usuari = Usuari(usuari_id, name)
-            self.usuaris.append({usuari_id: usuari})
+            self.usuaris[usuari_id] = usuari #correct dictionary assignment
             return True
         else:
+            return False
+
+    def planificar_encarrec(self):
+        """Treu el primer encàrrec de la llista"""
+        if self.encarrecs: #check if the list is empty
+            return self.encarrecs.pop(0)
+        return None
+
+    def top_vendes(self):
+        """Retorna top productes venuts"""
+        return sorted(self.productes, key=lambda x: x.get_vendas(), reverse=True) #access get_vendas method
+    
+    def realitzar_encarreg(self, usuari_id, productes_encarrec): #added self parameter
+        """Gestiona un nou encàrrec"""
+        for producte in productes_encarrec:
+            producte.set_vendas(1)
+            if producte.fred():
+                espai = self.magatzem[1]
+                correct = espai.set_vendas(producte, 1) #changed set_venda to set_vendas
+                if correct:
+                    self.encarrecs.append({"usuari": usuari_id, "productes": productes_encarrec}) #added self
+                    self.usuaris
             return False
 
     def planificar_encarrec(self):
