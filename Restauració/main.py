@@ -1,15 +1,16 @@
 # main.py
 
-from magatzem import inicialitzar_magatzem
+from magatzem import *
 from quiosc import *
-from cuina import *
 
-
-inicialitzar_magatzem() # ¿?
 end = False
-
+despensa = Despensa()
+frigo = Frigo()
+magatzem = [despensa, frigo]
+quiosc = Quiosc()
 
 print("\n*** UPC Restauració ***")
+
 
 while not end:
     print("\nMenú Principal:")
@@ -24,18 +25,19 @@ while not end:
 
     if opcio == "1":
         usuari = input("Introdueix ID d'usuari: ")
-        if registrar_usuari(usuari):
+        nom = input("Introdueix nom d'usuari: ")
+        if registrar_usuari(usuari, nom):
             print(f"Usuari {usuari} registrat!")
         else:
             print("[!] Error: L'usuari ja existeix")
     elif opcio == "2":
         print("Categories disponibles:")
-        print(obtenir_categories())
+        print(quiosc.obtenir_categories())
     elif opcio == "3":
-        print(obtenir_categories())
-        categoria = input("Introdueix el nom de la categoria: ")
-        productes_categoria = obtenir_productes_per_categoria(categoria)
-        if productes_categoria:
+        print(quiosc.obtenir_categories())
+        categoria = input("\nIntrodueix el nom de la categoria: ")
+        if categoria in quiosc.obtenir_categories():
+            productes_categoria = quiosc.obtenir_productes_per_categoria(categoria)
             print(f"Productes de la categoria '{categoria}':")
             for p in productes_categoria:
                 print(f"ID: {p['id']} | Nom: {p['nom']} | Preu: {p['preu']}€ | Categoria: {p['categoria']}")
@@ -48,29 +50,29 @@ while not end:
             continue
         productes_encarrec = []
         print("Escull productes (escriu 'fi' per acabar):")
-        while True:
+        fi = False
+        while fi == False:
             producte_id = input("ID del producte: ")
             if producte_id.lower() == "fi":
-                break
+                fi = True
             producte = next((p for p in productes if p["id"] == producte_id), None) # https://www.w3schools.com/python/ref_func_next.asp
-            if producte:
+            if producte != None:
                 productes_encarrec.append(producte)
                 ventes[producte_id] = ventes.get(producte_id, 0) + 1
                 print(f"Producte afegit: {producte['nom']}")
             else:
                 print("ID no valid")
-        if productes_encarrec:
-            realitzar_encarreg(usuari, productes_encarrec)
+        if productes_encarrec != None:
+            quiosc.realitzar_encarreg(usuari, productes_encarrec)
             print("[i] Encàrrec realitzat amb exit!")
         else:
             print("[i] Encàrrec buit")
     elif opcio == "5":
-        ranking = top_vendes()
-        if ranking:
+        ranking = quiosc.top_vendes()
+        if ranking != None:
             print("Top productes més venuts:")
-            for producte_id, quantitat in ranking:
-                producte = next(p for p in productes if p["id"] == producte_id)
-                print(f"ID: {producte_id} | Nom: {producte['nom']} | Vendes: {quantitat}")
+            for producte in ranking:
+                print(f"ID: {producte.get_id()} | Nom: {producte.get_nom()} | Vendes: {producte.get_vendas()}")
         else:
             print("[i] Encara no hi ha vendes registrades")
     elif opcio == "6":
