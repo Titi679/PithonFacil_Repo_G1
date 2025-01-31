@@ -35,6 +35,10 @@ class Quiosc:
             return True
         else:
             return False
+
+    def top_vendes(self):
+        """Retorna top productes venuts"""
+        return sorted(self.productes.items(), key=lambda x: x.get_preu(), reverse=True)
     
     def realitzar_encarreg(usuari_id, productes_encarrec):
         """Gestiona un nou encàrrec"""
