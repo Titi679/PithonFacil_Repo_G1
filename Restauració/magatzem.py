@@ -143,4 +143,7 @@ class Producte:
       return f"\nID: {self.id} \nNom: {self.nom} \nPreu: {self.preu} \nCategoria: {self.categoria} \nFred: No"
 
   def fred(self):
-    return self.fred #simplified fred function
+    if self.fred:
+      return True
+    else:
+      return False
