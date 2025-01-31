@@ -121,6 +121,9 @@ class Producte:
     self.vendas = 0
     self.fred = fred
 
+  def get_id(self):
+    return self.id
+    
   def get_nom(self):
     return self.nom
 
