@@ -9,7 +9,6 @@ class Quiosc:
         self.ventes = []
 
     def registrar_usuari(self, usuari_id):
-        """Registra un usuari al sistema."""
         if usuari_id not in self.usuaris:
             self.usuaris[usuari_id] = []
             print(f"Usuari '{usuari_id}' registrat correctament.")
@@ -17,7 +16,6 @@ class Quiosc:
             print(f"Usuari '{usuari_id}' ja està registrat.")
 
     def consultar_categories(self, es_fred):
-        """Consulta les categories disponibles segons el tipus d'emmagatzematge."""
         categories = set()
         prestatges = (
             self.magatzem.prestatges_fred if es_fred else self.magatzem.prestatges_despensa
@@ -29,7 +27,6 @@ class Quiosc:
         return list(categories)
 
     def consultar_productes_categoria(self, categoria):
-        """Consulta els productes d'una categoria específica."""
         productes = []
         prestatges = self.magatzem.prestatges_fred + self.magatzem.prestatges_despensa
         for prestatge in prestatges:
@@ -39,7 +36,6 @@ class Quiosc:
         return productes
 
     def realitzar_encarrec(self, usuari_id, productes):
-        """Permet a un usuari realitzar un encàrrec."""
         if usuari_id in self.usuaris:
             self.encarrecs.append((usuari_id, productes))
             self.usuaris[usuari_id].append(productes)
@@ -48,7 +44,6 @@ class Quiosc:
             print("Error: Usuari no registrat.")
 
     def consultar_encarrecs(self, usuari_id):
-        """Consulta els encàrrecs que un usuari ha realitzat prèviament."""
         if usuari_id in self.usuaris:
             return self.usuaris[usuari_id]
         else:
@@ -56,7 +51,6 @@ class Quiosc:
             return None
 
     def consultar_catalog_preu(self):
-        """Consulta el catàleg de productes ordenat per preu."""
         prestatges = self.magatzem.prestatges_fred + self.magatzem.prestatges_despensa
         productes = []
         for prestatge in prestatges:
