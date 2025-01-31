@@ -12,8 +12,41 @@ class Magatzem:
   def get_espai(self):
     return self.espai
 
-  #def organitzar(self, Producte):
-    # Codi 
+  def crear_matriz_magatzem(elementos):
+  # Crear una matriz 4x4 vacía (fred = si)
+  matriz = [[' ' for _ in range(4)] for _ in range(4)]
+
+def crear_matriz_frigo(elementos):
+  # Crear una matriz 12x4 vacía (fred = no)
+  matriz = [[' ' for _ in range(4)] for _ in range(12)]
+
+  # Función para buscar la primera posición vacía en la matriz
+def buscar_posicion():
+  for i in range(4):
+      for j in range(4):
+         if matriz[i][j] == ' ': #posicion vacia
+           return i, j
+  return None, None  # Si no hay espacio vacío
+
+# Función para actualizar la visualización de la matriz
+def actualizar_matriz_magatzem():
+  print("\nMatriz actualizada:")
+  for i in range(4):
+      row = "|"
+      for j in range(4):
+          row += f" {matriz[i][j]} |"
+      print(row)
+  print("\n")
+
+# Función para actualizar la visualización de la matriz
+def actualizar_matriz_fred():
+  print("\nMatriz actualizada:")
+  for i in range(4):
+      row = "|"
+      for j in range(12):
+          row += f" {matriz[i][j]} |"
+      print(row)
+  print("\n") 
   
   def add(self, Contenidor, pos):
     #pos = self.organitzar(Contenidor.get_pr(Producte))
