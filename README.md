@@ -24,4 +24,4 @@ Aquest projecte simula la gestió d'un quiosc i magatzem per a un servei de rest
 - `main.py` → Programa principal que gestiona el menú i la interacció amb l'usuari.
 - `quiosc.py` → Conté la classe `Quiosc`, que gestiona usuaris, encàrrecs i vendes.
 - `magatzem.py` → Defineix les classes `Magatzem`, `Frigo`, `Despensa`, `Producte` i `Contenidor`, que estructuren l'emmagatzematge i manipulació dels productes.
-- 'matriu.py' → Funció per visulitzar el posicionament dels productes i safates en la despensa o el frigorífic
+- `matriu.py` → Funció per visulitzar el posicionament dels productes i safates en la despensa o el frigorífic
