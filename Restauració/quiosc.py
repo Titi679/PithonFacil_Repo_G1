@@ -48,19 +48,15 @@ class Quiosc:
     
     def realitzar_encarreg(usuari_id, productes_encarrec):
         """Gestiona un nou encàrrec"""
-        if usuari_id in usuaris:
-            for producte in productes_encarrec:
-                if producte not in self.productes:
-                    return False
-                else:
-                    producte.set_vendas(1)
-                    if producte.fred():
-                        espai = self.magatzem[1]
-                        correct = espai.set_venda(producte, 1)
-                        if correct:
-                            encarrecs.append({"usuari": usuari_id, "productes": productes_encarrec})
-                            self.usuaris.get(usuari_id).set_enc("productes": productes_encarrec))
-                            return True
+        for producte in productes_encarrec:
+            producte.set_vendas(1)
+            if producte.fred():
+                espai = self.magatzem[1]
+                correct = espai.set_venda(producte, 1)
+                if correct:
+                    encarrecs.append({"usuari": usuari_id, "productes": productes_encarrec})
+                    self.usuaris.get(usuari_id).set_enc("productes": productes_encarrec))
+                    return True
         else:
             return False
 
