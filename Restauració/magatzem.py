@@ -10,9 +10,6 @@ class Magatzem:
   def get_espai(self):
     return self.espai
 
-  #def organitzar(self, Producte):
-    # Codi
-
   def add(self, Contenidor, pos): #added pos parameter
     #pos = self.organitzar(Contenidor.get_pr(Producte)) #removed this line
     Contenidor.set(pos)

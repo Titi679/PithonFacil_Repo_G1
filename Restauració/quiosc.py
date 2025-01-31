@@ -1,5 +1,5 @@
 # quiosc.py
-#import magatzem #already imported in the main file
+import magatzem #already imported in the main file
 
 class Usuari:
     def __init__(self, id, name):
@@ -15,8 +15,8 @@ class Quiosc:
         self.usuaris = {}
         self.encarrecs = []
         self.productes = []
-        despensa = Despensa()
-        frigo = Frigo()
+        despensa = magatzem.Despensa()
+        frigo = magatzem.Frigo()
         self.magatzem = [despensa, frigo]
 
     def get_usuaris(self):
@@ -97,29 +97,3 @@ class Quiosc:
         if producte not in self.productes:
             self.productes.append(producte)
 
-# test
-#despensa = Despensa()
-frigo = Frigo()
-#magatzem = [despensa, frigo]
-
-producte1 = Producte("oli5", "oli verge extra", 32, "olis", False)
-producte2 = Producte("wine1", "Blanc Pescador",  10, "begudes", False)
-producte3 = Producte("wine2", "Albariño", 14, "begudes", False)
-
-contenidor11 = Contenidor(50, producte1)
-contenidor12 = Contenidor(25, producte1)
-contenidor2 = Contenidor(75, producte2)
-contenidor3 = Contenidor(50, producte3)
-
-frigo.add(contenidor11, (0,0))
-frigo.add(contenidor12, (0,1))
-frigo.add(contenidor2, (1,1))
-frigo.add(contenidor3, (2,1))
-
-print(producte1)
-print(producte2)
-print(producte3)
-
-for prestatge in frigo.get_espai():
-  if prestatge.getq() != 0:
-    print(prestatge)

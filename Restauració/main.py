@@ -1,8 +1,8 @@
 # main.py
 
-from magatzem import *
+from magatzem import Frigo, Despensa
+from quiosc import Quiosc
 
-from quiosc import *
 end = False
 despensa = Despensa()
 frigo = Frigo()
@@ -10,7 +10,6 @@ magatzem = [despensa, frigo]
 quiosc = Quiosc()
 
 print("\n*** UPC Restauració ***")
-
 
 while not end:
     print("\nMenú Principal:")
@@ -56,16 +55,16 @@ while not end:
             producte_id = input("ID del producte: ")
             if producte_id.lower() == "fi":
                 fi = True
-            producte = next((p for p in quiosc.productes if p.get_id() == producte_id), None) # https://www.w3schools.com/python/ref_func_next.asp
+            producte = next((p for p in quiosc.productes if p.get_id() == producte_id), None)
             if producte != None:
                 productes_encarrec.append(producte)
                 quiosc.ventes[producte_id] = quiosc.ventes.get(producte_id, 0) + 1
-                print(f"Producte afegit: {producte['nom']}")
+                print(f"Producte afegit: {producte.get_nom()}")
             else:
-                print("ID no valid")
+                print("ID no vàlid")
         if len(productes_encarrec) != 0:
-          quiosc.realitzar_encarreg(usuari, productes_encarrec)
-          print("[i] Encàrrec realitzat amb exit!")
+            quiosc.realitzar_encarreg(usuari, productes_encarrec)
+            print("[i] Encàrrec realitzat amb èxit!")
         else:
             print("[i] Encàrrec buit")
     elif opcio == "5":
@@ -80,4 +79,8 @@ while not end:
         print("Fins aviat!")
         end = True
     else:
-        print("[i] Opcio no valida")
+        print("[i] Opció no vàlida")
+
+
+
+
