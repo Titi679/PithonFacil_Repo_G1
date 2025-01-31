@@ -33,7 +33,7 @@ class Magatzem:
     end = False
     for prestatge in self.espai:
       contenidor = prestatge.get_cont()[0]
-      if contenidor.get_pr().get_nom() == producte.get_nom()
+      if contenidor.get_pr().get_nom() == producte.get_nom():
          correcte = prestatge.get_cont()[0].set_vendas(num)
          if correcte and prestatge.get_cont()[0].get_q() == 0:
           contenidor = prestatge.get_cont()
