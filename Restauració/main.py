@@ -26,7 +26,7 @@ while not end:
     if opcio == "1":
         usuari = input("Introdueix ID d'usuari: ")
         nom = input("Introdueix nom d'usuari: ")
-        if registrar_usuari(usuari, nom):
+        if quiosc.registrar_usuari(usuari, nom):
             print(f"Usuari {usuari} registrat!")
         else:
             print("[!] Error: L'usuari ja existeix")
@@ -45,7 +45,7 @@ while not end:
             print("[i] Categoria no trobada")
     elif opcio == "4":
         usuari = input("Introdueix el teu ID d'usuari: ")
-        if usuari not in usuaris:
+        if usuari not in quiosc.get_usuaris():
             print("[!] Error: Has de registrar-te abans de fer un encàrrec")
             continue
         productes_encarrec = []
