@@ -1,8 +1,8 @@
 # main.py
 
 from magatzem import *
-from quiosc import *
 
+from quiosc import *
 end = False
 despensa = Despensa()
 frigo = Frigo()
@@ -45,7 +45,8 @@ while not end:
             print("[i] Categoria no trobada")
     elif opcio == "4":
         usuari = input("Introdueix el teu ID d'usuari: ")
-        if usuari not in quiosc.get_usuaris():
+        usuaris = quiosc.get_usuaris()
+        if usuari not in usuaris:
             print("[!] Error: Has de registrar-te abans de fer un encàrrec")
             continue
         productes_encarrec = []
@@ -55,16 +56,16 @@ while not end:
             producte_id = input("ID del producte: ")
             if producte_id.lower() == "fi":
                 fi = True
-            producte = next((p for p in productes if p["id"] == producte_id), None) # https://www.w3schools.com/python/ref_func_next.asp
+            producte = next((p for p in quiosc.productes if p.get_id() == producte_id), None) # https://www.w3schools.com/python/ref_func_next.asp
             if producte != None:
                 productes_encarrec.append(producte)
-                ventes[producte_id] = ventes.get(producte_id, 0) + 1
+                quiosc.ventes[producte_id] = quiosc.ventes.get(producte_id, 0) + 1
                 print(f"Producte afegit: {producte['nom']}")
             else:
                 print("ID no valid")
-        if productes_encarrec != None:
-            quiosc.realitzar_encarreg(usuari, productes_encarrec)
-            print("[i] Encàrrec realitzat amb exit!")
+        if len(productes_encarrec) != 0:
+          quiosc.realitzar_encarreg(usuari, productes_encarrec)
+          print("[i] Encàrrec realitzat amb exit!")
         else:
             print("[i] Encàrrec buit")
     elif opcio == "5":
